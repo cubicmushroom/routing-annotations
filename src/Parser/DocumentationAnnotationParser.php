@@ -8,8 +8,9 @@
 
 namespace CubicMushroom\Annotations\Routing\Parser;
 
-use CubicMushroom\Annotations\Routing\Response\Body;
-use CubicMushroom\Annotations\Routing\Route;
+use CubicMushroom\Annotations\Routing\Annotation\Response\Body as ResponseBody;
+use CubicMushroom\Annotations\Routing\Annotation\Request\Body as RRequestBody;
+use CubicMushroom\Annotations\Routing\Annotation\Route;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Doctrine\Common\Annotations\Reader;
 
@@ -69,7 +70,11 @@ class DocumentationAnnotationParser
                                 $APIAnnotations[$class][$reflectionMethod->getName()]['routes'][] = $annotation;
                                 break;
 
-                            case ($annotation instanceof Body):
+                            case ($annotation instanceof ResponseBody):
+                                $APIAnnotations[$class][$reflectionMethod->getName()]['requestBody'][] = $annotation;
+                                break;
+
+                            case ($annotation instanceof RequestBody):
                                 $APIAnnotations[$class][$reflectionMethod->getName()]['responseBody'][] = $annotation;
                                 break;
 
