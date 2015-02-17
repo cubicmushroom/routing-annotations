@@ -1,5 +1,5 @@
 {
-  "name": "slim-slim-routing-annotations",
+  "name": "routing-annotations",
   "version": "1.0.0",
   "description": "Library to parse classes for routing annotations and sets up routes",
   "main": "gulpfile.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cubicmushroom/slim-routing-annotations.git"
+    "url": "https://github.com/cubicmushroom/routing-annotations.git"
   },
   "keywords": [
     "routing",
@@ -20,9 +20,9 @@
   "author": "Toby Griffiths <toby@cubicmushroom.co.uk>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cubicmushroom/slim-routing-annotations.git/issues"
+    "url": "https://github.com/cubicmushroom/routing-annotations.git/issues"
   },
-  "homepage": "https://github.com/cubicmushroom/slim-routing-annotations.git",
+  "homepage": "https://github.com/cubicmushroom/routing-annotations.git",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-codeception": "^0.5.0",

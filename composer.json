@@ -1,5 +1,5 @@
 {
-  "name": "cubicmushroom/slim-routing-annotations",
+  "name": "cubicmushroom/routing-annotations",
   "description": "Library to parse classes for routing annotations and sets up routes",
   "license": "MIT",
   "authors": [
