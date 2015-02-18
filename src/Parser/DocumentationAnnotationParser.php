@@ -9,7 +9,7 @@
 namespace CubicMushroom\Annotations\Routing\Parser;
 
 use CubicMushroom\Annotations\Routing\Annotation\Response\Body as ResponseBody;
-use CubicMushroom\Annotations\Routing\Annotation\Request\Body as RRequestBody;
+use CubicMushroom\Annotations\Routing\Annotation\Request\Body as RequestBody;
 use CubicMushroom\Annotations\Routing\Annotation\Route;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Doctrine\Common\Annotations\Reader;
@@ -31,18 +31,22 @@ class DocumentationAnnotationParser
      */
     protected $reader;
 
+    /**
+     * @var callable
+     */
+    protected $autoloader;
+
 
     /**
      * Stores the reader object
      *
      * @param Reader $reader Annotation reader object
      */
-    public function __construct(Reader $reader)
+    public function __construct(Reader $reader, callable $autoloader)
     {
         $this->setReader($reader);
 
-        $loader = require(VENDOR_DIR . DS . 'autoload.php');
-        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+        AnnotationRegistry::registerLoader($autoloader);
     }
 
 
@@ -51,7 +55,7 @@ class DocumentationAnnotationParser
      *
      * @param array $classes Array of classes to parse
      *
-     * @return \LIMTool\API\Annotation\API\Route[]
+     * @return array
      */
     public function parse(array $classes)
     {
